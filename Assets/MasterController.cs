@@ -6,7 +6,20 @@ public class Master : MonoBehaviour {
 	public static float value;
 	public static float target;
 	public static float speed;
-	public static float effectLength;
+
+	private static float _effectLength = 0;
+	public static float effectLength {
+		get {
+			return _effectLength;
+		}
+		set {
+			if (value < Master._effectLength) {		// this property causes growth asymptotically to sqrt(x) 
+				Master._effectLength = value;       // but allows linear diminishing
+			} else {								
+				_effectLength = Mathf.Sqrt(Master._effectLength * Master._effectLength - Master._effectLength + value);
+			}
+		}
+	}
 
 	private static float dv;
 	private static float d2v;
@@ -14,9 +27,9 @@ public class Master : MonoBehaviour {
 	
 	public  static float dt = .05f;
 
-	private static float a = 1;
-	private static float b = -3;
-	private static float c = 2;
+	private static float a = .005f;
+	private static float b = -1;
+	private static float c = 1;
 
 	private static float maxSpeed = 1f;			
 	private static float PONRMax = 400f;
@@ -32,7 +45,7 @@ public class Master : MonoBehaviour {
 		Master.d2v = 0;
 		Master.localValueMax = 0;
 		// max speed is multiplied to allow it to actually reach its max value
-		Master.maxSpeed *= 1 + Mathf.Exp (2); 
+		Master.maxSpeed *= 1 + Mathf.Exp (-2); 
 	}
 
 	public static bool update() {
@@ -40,36 +53,35 @@ public class Master : MonoBehaviour {
 		if(Master.effectLength > 0) {					// if were in an effect
 			Master.effectLength -= Master.dt;			// decement the effect length
 			if (Master.effectLength <= 0) {				// if we've passed the effect length
-				Master.effectLength = 0;				// set the length to 0
+				Master._effectLength = 0;				// set the length to 0
 				Master.target = -localValueMax;			// target with withdrawl amount
 			}
 		}
 
 		// Second order control creates a force 
-		float force = a*(Master.value - Master.target) + b*(Master.dv/Master.dt) + c*(Master.d2v/Master.dt);
-		Master.d2v += force; 							// apply force
+		Master.d2v = a*(Master.target - Master.value) + b*(Master.dv)*(Master.dt) + c*(Master.d2v)*(Master.dt)*(Master.dt);
 		Master.dv += Master.d2v;						// change velocity 
 		Master.value += Master.dv;						// update value
 
 		// check for new local max
-		if (Master.value > Master.localValueMax) 
-			Master.localValueMax = Master.value;
+		if (Master.value > Master.target && Master.target > Master.localValueMax) 
+			Master.localValueMax = Master.target;
 
 		//calculate the speed for this step
-		Master.speed = Master.maxSpeed / (1f + Mathf.Exp (Master.value / 200));
+		Master.speed = Master.maxSpeed / (1f + Mathf.Exp (- Master.value / 200));
 
-		if (Master.value > Master.PONRMax) {
+		if (Master.target > Master.PONRMax) {
 			Debug.Log("Point of no return Max past");
-			return false;
+			return true;
 		}
 
-		if (Master.value < Master.PONRMin) {
+		if (Master.target < Master.PONRMin) {
 			Debug.Log("Point of no return Min past");
-			return false;
+			return true;
 		}
 
-		Debug.Log ("Value: " + Master.value + " Target: " + Master.target);
+		Debug.Log ("Speed: " + Master.speed + " Value: " + Master.value + " Target: " + Master.target + " Effect Length: " + Master.effectLength);
 
-		return true;
+		return false;
 	}
 }

@@ -11,10 +11,15 @@ public class m : MonoBehaviour {
 			Master.target += 10;
 			Master.effectLength += 2;
 		}
+		GetComponent<Light> ().intensity = 2 * (Master.value + 360) / (800);
 	}
 	IEnumerator mUpdate() {
-		Debug.Log ("Hello");
-		if(Master.update ())
-			yield return new WaitForSeconds (Master.dt);
+		Debug.Log (Master.dt);
+		if (Master.update ()) {
+			Debug.Log ("Done");
+			return true;
+		}
+		yield return new WaitForSeconds (Master.dt);
+		StartCoroutine (mUpdate ());
 	}
 }
