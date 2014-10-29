@@ -1,7 +1,6 @@
 ﻿Shader "Custom/Jelly Distortion Tess" {
         Properties {
         	_EdgeLength ("Edge length", Range(2,50)) = 5
-            _Tess ("Tessellation", Range(1,32)) = 4
             _Phong ("Phong Strengh", Range(0,1)) = 0.5
             _MainTex ("Base (RGB)", 2D) = "white" {}
             _NormalMap ("Normalmap", 2D) = "bump" {}
@@ -14,9 +13,13 @@
 
             
             CGPROGRAM
-            #pragma surface surf BlinnPhong addshadow fullforwardshadows vertex:disp tessellate:tessEdgeBased tessphong:_Phong
+            #pragma surface surf BlinnPhong vertex:disp tessellate:tessEdgeBased tessphong:_Phong
             #pragma target 5.0
            	#include "Tessellation.cginc"
+           	
+            float _EdgeLength;
+            float _Phong;
+         
 
         	struct appdata {
                 float4 vertex : POSITION;
@@ -28,6 +31,7 @@
 
             float4 tessEdgeBased (appdata v0, appdata v1, appdata v2)
             {
+            
                 return UnityEdgeLengthBasedTess (v0.vertex, v1.vertex, v2.vertex,_EdgeLength);
             }
             
