@@ -72,11 +72,15 @@ Material:
         first:
           name: _Parallax
         second: .0199999996
+      data:
+        first:
+          name: _Tess
+        second: 32
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .507352948, g: .261137545, b: .261137545, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 0}
       data:
         first:
           name: _SpecColor

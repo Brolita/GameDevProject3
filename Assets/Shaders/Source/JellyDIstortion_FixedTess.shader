@@ -1,4 +1,4 @@
-﻿Shader "Custom/FLAT Jelly Distortion" {
+﻿Shader "Custom/Jelly Distortion Tess" {
         Properties {
             _Tess ("Tessellation", Range(1,32)) = 4
             _MainTex ("Base (RGB)", 2D) = "white" {}
@@ -14,26 +14,25 @@
 
             
             CGPROGRAM
-            #pragma surface surf BlinnPhong vertex:disp  
-            #pragma target 3.0
+            #pragma surface surf BlinnPhong addshadow fullforwardshadows vertex:disp tessellate:tessEdgeBased 
+            #pragma target 5.0
+           	#include "Tessellation.cginc"
 
-
-
-			float _Tess;
-
-            float4 tessFixed()
-            {
-                return _Tess;
-            }
-    
-       
-            struct appdata {
+        	struct appdata {
                 float4 vertex : POSITION;
                 float4 color : COLOR;
                 float4 tangent : TANGENT;
                 float3 normal : NORMAL;
                 float2 texcoord : TEXCOORD0;
             };
+
+            float4 tessEdgeBased (appdata v0, appdata v1, appdata v2)
+            {
+                return UnityEdgeLengthBasedTess (v0.vertex, v1.vertex, v2.vertex, _EdgeLength);
+            }
+            
+
+   
 			float3 mod289(float3 x) {
 			  return x - floor(x * (1.0 / 289.0)) * 289.0;
 			}
@@ -127,7 +126,6 @@
 			                                dot(p2,x2), dot(p3,x3) ) );
 			  }
  
-	 
 			
 			sampler2D _DispTex;
             float _Displacement;
@@ -162,5 +160,5 @@
             }
             ENDCG
         }
-        FallBack "Diffuse"
+        FallBack "Custom/FLAT Jelly Distortion"
     }
