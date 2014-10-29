@@ -6,7 +6,7 @@
             _NormalMap ("Normalmap", 2D) = "bump" {}
             _Color ("Color", color) = (1,1,1,0)
             _SpecColor ("Spec color", color) = (0.5,0.5,0.5,0.5)
-            _LightIntensity ("Light Intensity", range(1,5)) = 1.0
+            _LightIntensity ("Light Intensity", range(0,5)) = 1.0
         }
         SubShader {
             Tags { "RenderType"="Opaque" }
