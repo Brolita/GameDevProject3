@@ -8,11 +8,14 @@
     
             
             CGPROGRAM
-            #pragma surface surf BlinnPhong vertex:disp 
-            #pragma target 3.0
+            #pragma surface surf SimpleSpecular vertex:disp tessellate:tessFixed 
+            #pragma target 5.0
+            
+            half dLight = 2.0;
        
             struct appdata {
                 float4 vertex : POSITION;
+                float4 color : COLOR;
                 float4 tangent : TANGENT;
                 float3 normal : NORMAL;
                 float2 texcoord : TEXCOORD0;
@@ -33,7 +36,13 @@
 			{
 			  return 1.79284291400159 - 0.85373472095314 * r;
 			}
-
+			
+			float4 tessFixed()
+            {
+                return 8;
+            }
+			
+			
 			float snoise(float3 v)
 			  { 
 			  const float2  C = float2(1.0/6.0, 1.0/3.0) ;
@@ -110,6 +119,23 @@
 			  }
  
 	   
+	       half4 LightingSimpleSpecular (SurfaceOutput s, half3 lightDir, half3 viewDir, half atten) {
+		        half3 h = normalize (lightDir + viewDir);
+
+		        half diff = max (0, dot (s.Normal, lightDir));
+
+		        float nh = max (0, dot (s.Normal, h));
+		        float spec = pow (nh, 48.0);
+
+				dLight = diff;
+	
+
+		        half4 c;
+		        c.rgb = (s.Albedo * _LightColor0.rgb * diff + _LightColor0.rgb * spec) * (atten * 2);
+		        c.a = s.Alpha;
+		        
+		        return c;
+    		}
 			
 			sampler2D _DispTex;
             float _Displacement;
@@ -117,10 +143,10 @@
             void disp (inout appdata v)
             {
             
-   
+   	
    				float displacement  =  snoise(v.vertex.xyz);
    			
-                v.vertex.xyz += v.normal * displacement *	sin(tan(cos(_Time))) / 2.5;
+                v.vertex.xyz += v.normal *  displacement *	sin(tan(cos(_Time))) / 2.5;
             
 
    			}
