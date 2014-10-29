@@ -56,6 +56,10 @@ public class CubeScript: MonoBehaviour {
 		
 		if (PlayerObject.transform.position.z > transform.position.z + diff)
 		{
+			if(gameObject.GetComponent<Rigidbody>() == null){
+				gameObject.AddComponent("Rigidbody");
+			}
+
 			gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.2f,-1.3f,0.0f) * Random.value ,ForceMode.Impulse);
 			
 			
