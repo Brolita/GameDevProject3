@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Jelly Distortion
-  m_Shader: {fileID: 4800000, guid: 7cff55a68876f4f88be91bc5a4b40c55, type: 3}
+  m_Shader: {fileID: 4800000, guid: 38059b2cc1c5f5a4f96452a585763b2e, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -75,7 +75,7 @@ Material:
       data:
         first:
           name: _Tess
-        second: 32
+        second: 1
     m_Colors:
       data:
         first:
@@ -84,7 +84,7 @@ Material:
       data:
         first:
           name: _SpecColor
-        second: {r: .529411793, g: .408737063, b: .408737063, a: .501960814}
+        second: {r: 1, g: 1, b: 1, a: 0}
       data:
         first:
           name: _RimColor

@@ -26,7 +26,7 @@
 
             float4 tessEdgeBased (appdata v0, appdata v1, appdata v2)
             {
-                return UnityEdgeLengthBasedTess (v0.vertex, v1.vertex, v2.vertex, _EdgeLength);
+                return UnityEdgeLengthBasedTess (v0.vertex, v1.vertex, v2.vertex,15.0);
             }
             
 
@@ -100,7 +100,7 @@
 			  //float4 s1 = float4(lessThan(b1,0.0))*2.0 - 1.0;
 			  float4 s0 = floor(b0)*2.0 + 1.0;
 			  float4 s1 = floor(b1)*2.0 + 1.0;
-			  float4 sh = -step(h, float4(0.0));
+			  float4 sh = -step(h, float4(0.0,0.0,0.0,0.0));
 
 			  float4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
 			  float4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
