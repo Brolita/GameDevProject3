@@ -28,7 +28,7 @@ public class Master : MonoBehaviour {
 	public  static float dt = .05f;
 
 	private static float a = .005f;
-	private static float b = -1;
+	private static float b = -2;
 	private static float c = 1;
 
 	private static float maxSpeed = 1f;			
@@ -46,6 +46,10 @@ public class Master : MonoBehaviour {
 		Master.localValueMax = 0;
 		// max speed is multiplied to allow it to actually reach its max value
 		Master.maxSpeed *= 1 + Mathf.Exp (-2); 
+	}
+
+	public static float ratio() {
+		return (Master.value - Master.realMin) / (Master.realMax - Master.realMin);
 	}
 
 	public static bool update() {
@@ -80,7 +84,7 @@ public class Master : MonoBehaviour {
 			return true;
 		}
 
-		Debug.Log ("Speed: " + Master.speed + " Value: " + Master.value + " Target: " + Master.target + " Effect Length: " + Master.effectLength);
+		//Debug.Log ("Speed: " + Master.speed + " Value: " + Master.value + " Target: " + Master.target + " Effect Length: " + Master.effectLength);
 
 		return false;
 	}

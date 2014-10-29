@@ -7,14 +7,13 @@ public class m : MonoBehaviour {
 		StartCoroutine (mUpdate ());
 	}
 	void Update() {
-		if (Input.GetKeyDown ("a")) {
+		if (Input.GetKeyDown ("w")) {
 			Master.target += 10;
 			Master.effectLength += 2;
 		}
-		GetComponent<Light> ().intensity = 2 * (Master.value + 360) / (800);
+		GetComponent<Light> ().intensity = Master.ratio();
 	}
 	IEnumerator mUpdate() {
-		Debug.Log (Master.dt);
 		if (Master.update ()) {
 			Debug.Log ("Done");
 			return true;
