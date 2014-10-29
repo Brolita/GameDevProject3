@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: TessTest
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 7cff55a68876f4f88be91bc5a4b40c55, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -38,11 +38,11 @@ Material:
       data:
         first:
           name: _Displacement
-        second: .803571403
+        second: 0
       data:
         first:
           name: _Tess
-        second: 27.25
+        second: 1
     m_Colors:
       data:
         first:

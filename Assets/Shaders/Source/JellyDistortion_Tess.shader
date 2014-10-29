@@ -1,12 +1,12 @@
 ﻿Shader "Custom/Jelly Distortion Tess" {
         Properties {
-            _Tess ("Tessellation", Range(1,32)) = 4
+        	_EdgeLength ("Edge length", Range(2,50)) = 5
+            _Phong ("Phong Strengh", Range(0,1)) = 0.5
             _MainTex ("Base (RGB)", 2D) = "white" {}
-            _DispTex ("Disp Texture", 2D) = "gray" {}
             _NormalMap ("Normalmap", 2D) = "bump" {}
-            _Displacement ("Displacement", Range(0, 1.0)) = 0.3
             _Color ("Color", color) = (1,1,1,0)
             _SpecColor ("Spec color", color) = (0.5,0.5,0.5,0.5)
+            _LightIntensity ("Light Intensity", range(1,5)) = 1.0
         }
         SubShader {
             Tags { "RenderType"="Opaque" }
@@ -14,9 +14,17 @@
 
             
             CGPROGRAM
-            #pragma surface surf BlinnPhong addshadow fullforwardshadows vertex:disp tessellate:tessEdgeBased 
+            #pragma surface surf BlinnPhong vertex:disp tessellate:tessEdgeBased tessphong:_Phong
             #pragma target 5.0
            	#include "Tessellation.cginc"
+           	
+           	bool   _EffectedByLight;
+            float _EdgeLength;
+            float _Phong;
+            sampler2D _DispTex;
+            float _Displacement;
+            float _LightIntensity;
+         
 
         	struct appdata {
                 float4 vertex : POSITION;
@@ -28,7 +36,8 @@
 
             float4 tessEdgeBased (appdata v0, appdata v1, appdata v2)
             {
-                return UnityEdgeLengthBasedTess (v0.vertex, v1.vertex, v2.vertex, _EdgeLength);
+            
+                return UnityEdgeLengthBasedTess (v0.vertex, v1.vertex, v2.vertex,_EdgeLength);
             }
             
 
@@ -102,7 +111,7 @@
 			  //float4 s1 = float4(lessThan(b1,0.0))*2.0 - 1.0;
 			  float4 s0 = floor(b0)*2.0 + 1.0;
 			  float4 s1 = floor(b1)*2.0 + 1.0;
-			  float4 sh = -step(h, float4(0.0));
+			  float4 sh = -step(h, float4(0.0,0.0,0.0,0.0));
 
 			  float4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;
 			  float4 a1 = b1.xzyw + s1.xzyw*sh.zzww ;
@@ -127,14 +136,13 @@
 			  }
  
 			
-			sampler2D _DispTex;
-            float _Displacement;
+	
 
             void disp (inout appdata v)
             {
             
-   	
-   				float displacement  =  snoise(v.vertex.xyz);
+   				float displacement  =  snoise(v.vertex.xyz) * _LightIntensity;
+   				;
    			
                 v.vertex.xyz += v.normal *  displacement *	sin(tan(cos(_Time))) / 2.5;
             
