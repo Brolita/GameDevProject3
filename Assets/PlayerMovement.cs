@@ -13,8 +13,10 @@ public class PlayerMovement : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	//@TODO: Add checks x = 1 in size, add start pos for player. Make a platform that looks better.
+	//TODO: Add checks x = 1 in size, add start pos for player. Make a platform that looks better.
 	void Update () {
+		trans.rotation = new Quaternion (0, 0, 0, 0);
+		speed = Master.speed;
 		if (Input.GetKeyDown(KeyCode.D)) {
 			trans.Translate(1f + cubeGen.OffsetFactor,0,0);		
 		}
@@ -26,6 +28,9 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		if(Input.GetKeyDown(KeyCode.X)){
 			cubeGen.Size = new Vector3(cubeGen.Size.x-1,cubeGen.Size.y,cubeGen.Size.z);
+		}
+		if(Input.GetKeyDown(KeyCode.Space)){
+			rigidbody.AddForce(0,3,0,ForceMode.VelocityChange);
 		}
 		trans.Translate (0f, 0f, speed*Time.deltaTime);
 		if (Vector3.Distance (trans.position, cubeGen.gameObject.transform.position) > 25) {
