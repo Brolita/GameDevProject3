@@ -21,3 +21,15 @@ Icon?
 ehthumbs.db
 Thumbs.db
 *.meta
+
+Library/expandedItems
+
+Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll
+
+*.dll
+
+*.mdb
+
+*.db
+
+*.log
