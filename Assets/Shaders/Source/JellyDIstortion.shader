@@ -1,10 +1,10 @@
 ﻿Shader "Custom/FLAT Jelly Distortion" {
         Properties {
-            _Tess ("Tessellation", Range(1,32)) = 4
             _MainTex ("Base (RGB)", 2D) = "white" {}
             _NormalMap ("Normalmap", 2D) = "bump" {}
             _Color ("Color", color) = (1,1,1,0)
             _SpecColor ("Spec color", color) = (0.5,0.5,0.5,0.5)
+            _LightIntensity ("Light Intensity", range(1,5)) = 1.0
         }
         SubShader {
             Tags { "RenderType"="Opaque" }
@@ -15,14 +15,11 @@
             #pragma surface surf BlinnPhong vertex:disp  
             #pragma target 3.0
 
+	
+			sampler2D _DispTex;
+            float _Displacement;
+            float _LightIntensity;
 
-
-			float _Tess;
-
-            float4 tessFixed()
-            {
-                return _Tess;
-            }
     
        
             struct appdata {
@@ -126,15 +123,12 @@
 			  }
  
 	 
-			
-			sampler2D _DispTex;
-            float _Displacement;
-
+		
             void disp (inout appdata v)
             {
             
    	
-   				float displacement  =  snoise(v.vertex.xyz);
+   				float displacement  =  snoise(v.vertex.xyz) * _LightIntensity;
    			
                 v.vertex.xyz += v.normal *  displacement *	sin(tan(cos(_Time))) / 2.5;
             

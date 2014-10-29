@@ -36,14 +36,14 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _DispTex
+          name: _NormalMap
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _NormalMap
+          name: _DispTex
         second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
@@ -58,12 +58,20 @@ Material:
     m_Floats:
       data:
         first:
-          name: _Shininess
-        second: .078125
+          name: _EdgeLength
+        second: 5
       data:
         first:
           name: _Tess
         second: 1
+      data:
+        first:
+          name: _Phong
+        second: .5
+      data:
+        first:
+          name: _Shininess
+        second: .078125
       data:
         first:
           name: _Displacement
@@ -76,14 +84,6 @@ Material:
         first:
           name: _Parallax
         second: .0199999996
-      data:
-        first:
-          name: _EdgeLength
-        second: 5
-      data:
-        first:
-          name: _Phong
-        second: .5
     m_Colors:
       data:
         first:

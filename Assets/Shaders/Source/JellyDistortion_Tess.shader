@@ -6,6 +6,7 @@
             _NormalMap ("Normalmap", 2D) = "bump" {}
             _Color ("Color", color) = (1,1,1,0)
             _SpecColor ("Spec color", color) = (0.5,0.5,0.5,0.5)
+            _LightIntensity ("Light Intensity", range(1,5)) = 1.0
         }
         SubShader {
             Tags { "RenderType"="Opaque" }
@@ -17,8 +18,12 @@
             #pragma target 5.0
            	#include "Tessellation.cginc"
            	
+           	bool   _EffectedByLight;
             float _EdgeLength;
             float _Phong;
+            sampler2D _DispTex;
+            float _Displacement;
+            float _LightIntensity;
          
 
         	struct appdata {
@@ -131,14 +136,13 @@
 			  }
  
 			
-			sampler2D _DispTex;
-            float _Displacement;
+	
 
             void disp (inout appdata v)
             {
             
-   	
-   				float displacement  =  snoise(v.vertex.xyz);
+   				float displacement  =  snoise(v.vertex.xyz) * _LightIntensity;
+   				;
    			
                 v.vertex.xyz += v.normal *  displacement *	sin(tan(cos(_Time))) / 2.5;
             
