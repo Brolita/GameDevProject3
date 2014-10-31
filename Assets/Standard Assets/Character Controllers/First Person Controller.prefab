@@ -208,16 +208,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ec2fe99d1108b9d0006a298d76c639, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a2293e3b849147258b53fc5ca54cfe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 1
-  sensitivityX: 15
-  sensitivityY: 0
-  minimumX: -360
-  maximumX: 360
-  minimumY: 0
-  maximumY: 0
 --- !u!1002 &11400001
 EditorExtensionImpl:
   serializedVersion: 6
@@ -229,7 +222,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100002}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ab79d7f243824f5d9826bd83522c8df, type: 3}
+  m_Script: {fileID: 11500000, guid: 4610df1429df944f2bec0d01d569e091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canControl: 1
@@ -239,6 +232,7 @@ MonoBehaviour:
     maxSidewaysSpeed: 6
     maxBackwardsSpeed: 6
     slopeSpeedMultiplier:
+      serializedVersion: 2
       m_Curve:
       - time: -90
         value: 1

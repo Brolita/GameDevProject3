@@ -4,7 +4,6 @@
             _Phong ("Phong Strengh", Range(0,1)) = 0.5
             _MainTex ("Base (RGB)", 2D) = "white" {}
             _NormalMap ("Normalmap", 2D) = "bump" {}
-            _Color ("Color", color) = (1,1,1,0)
             _SpecColor ("Spec color", color) = (0.5,0.5,0.5,0.5)
             _LightIntensity ("Light Intensity", range(0,5)) = 1.0
         }
@@ -17,6 +16,7 @@
             #pragma surface surf BlinnPhong vertex:disp tessellate:tessEdgeBased tessphong:_Phong
             #pragma target 5.0
            	#include "Tessellation.cginc"
+           	#include "UnityCG.cginc"
            	
            	bool   _EffectedByLight;
             float _EdgeLength;
@@ -24,6 +24,9 @@
             sampler2D _DispTex;
             float _Displacement;
             float _LightIntensity;
+            
+            
+        
          
 
         	struct appdata {
@@ -142,10 +145,14 @@
             {
             
    				float displacement  =  snoise(v.vertex.xyz) * _LightIntensity;
-   				;
+   				
    			
-                v.vertex.xyz += v.normal *  displacement *	sin(tan(cos(_Time))) / 2.5;
-            
+                v.vertex.xyz += v.normal *  displacement *	sin(tan(cos(_Time))) * mag / 2.5 ;
+
+ 				
+ 				
+ 		
+ 		
 
    			}
    			
@@ -160,11 +167,20 @@
 		    sampler2D _NormalMap;
 	
          	void surf (Input IN, inout SurfaceOutput o) {
+         	
+         	                
+                
+ 				float intensityDecay = sqrt(dir.x*dir.x + dir.y*dir.y + dir.z*dir.z);
+         	
+     			float mag = _LightColor0.r * log(intensityDecay);
+ 				
+         	
                 half4 c = tex2D (_MainTex, IN.uv_MainTex);
                 o.Albedo = c.rgb;
                 o.Specular = 0.2;
                 o.Gloss = 1.0;
                 o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_MainTex));
+                
             }
             ENDCG
         }
