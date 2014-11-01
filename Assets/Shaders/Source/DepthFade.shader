@@ -20,7 +20,7 @@ v2f vert (appdata_base v){
    v2f o;
    o.pos = mul (UNITY_MATRIX_MVP, v.vertex);
    o.scrPos=ComputeScreenPos(o.pos);
-   //for some reason, the y position of the depth texture comes out inverted
+
    o.scrPos.y = 1 - o.scrPos.y;
    return o;
 }
