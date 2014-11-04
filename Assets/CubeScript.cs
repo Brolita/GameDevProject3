@@ -32,24 +32,6 @@ public class CubeScript: MonoBehaviour {
 	
 	}
 	
-	
-	void OnDestroy() {
-		
-		//if (Application.isPlaying) {
-		//	cg.Extend();
-		//}
-	}
-	
-	
-	void OnCollisionEnter(Collision c)
-	{
-		if ( c.gameObject.tag == "d")
-		{
-			//c.gameObject.rigidbody.useGravity = true;
-			
-		}
-	}
-	
 
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -59,26 +41,15 @@ public class CubeScript: MonoBehaviour {
 			if(gameObject.GetComponent<Rigidbody>() == null){
 				gameObject.AddComponent("Rigidbody");
 			}
+			gameObject.GetComponent<Rigidbody>().isKinematic = false;
 
 			gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.2f,-1.3f,0.0f) * Random.value ,ForceMode.Impulse);
 			
 			
 			Destroy(gameObject,Decay);
 			
-			
-		
-			
-		
-			
-			
 		}
-		
-		
-	
 	
 	}
-	
-	
-	
 	
 }

@@ -4,10 +4,15 @@ using System.Collections;
 public class CubeGenerator : MonoBehaviour 
 {		
 	public GameObject PlayerObject;
-	public GameObject Cube;
+	public GameObject Platform;
+	public GameObject Spike;
+	public GameObject Drug;
 	public Vector3 Size;
 	public float OffsetFactor;
-
+	/// <summary>
+	/// The drug spawn rate is how many blocks between the average drug spawn.
+	/// </summary>
+	public float drugSpawnRate;
 	/// <summary>
 	/// The spawn miss modifer is the amount of blocks
 	/// on a straight path until there is a 50% chance it
@@ -25,8 +30,9 @@ public class CubeGenerator : MonoBehaviour
 	/// </summary>
 	public int minimumPathCount;
 
-	public int[] depth;
-	public bool[] path;
+	private int[] depth;
+	private bool[] path;
+	private int lastDrugSpawn;
 
 	/* Pseduo code / explaination of algorithm
 	 * 
@@ -77,45 +83,59 @@ public class CubeGenerator : MonoBehaviour
 	float speed;
 	float n = 0;
 
-	GameObject newCube;
+	GameObject newPlatform;
 
 	void Start () 
 	{
-		Cube.GetComponent<CubeScript>().PlayerObject = PlayerObject;
-		speed = Cube.GetComponent<CubeScript>().Speed;
+		Platform.GetComponent<CubeScript>().PlayerObject = PlayerObject;
+		speed = Platform.GetComponent<CubeScript>().Speed;
 
 		// ----- Base Case ------
 
 		depth = new int[(int)Size.x];
 		path = new bool[(int)Size.x];
-		for(int x = 0 ; x < Size.x ; x++)
-		{
-			path[x] = true;
-			depth[x] = 1;
-			newCube = (GameObject)Instantiate(Cube,  (transform.position + new Vector3(x, 0, 0)) * (1 + OffsetFactor), transform.rotation);
-			newCube.transform.parent = transform;
-			end = 1;
+		for(int z = 0; z < 20; z++) {
+			for(int x = 0 ; x < Size.x ; x++)
+			{
+				path[x] = true;
+				depth[x] = 1;
+				newPlatform = (GameObject)Instantiate(Platform,  (transform.position + new Vector3(x, 0, z)) * (1 + OffsetFactor), transform.rotation);
+				newPlatform.transform.parent = transform;
+				newPlatform.GetComponent<CubeScript>().PlayerObject = PlayerObject;
+			}
+			end = z + 1;
 		}
 
 		// -----------------------
 
-		for(int z = 1 ; z < Size.z ; z++)
+		for(int z = 20 ; z < Size.z ; z++)
 		{
 			Generate(z);
 			end += 1;
 		}
+
+		lastDrugSpawn = (int)end;
 	}
 
-	void Create(float x, float z, bool makeRed = false, bool makeGreen = false) 
+	void Create(float x, float z, bool spike = false, bool makeGreen = false) 
 	{
-		newCube = (GameObject)Instantiate(Cube,  (transform.position + new Vector3(x, 0, z)) * (1 + OffsetFactor), transform.rotation);
-		newCube.transform.parent = transform;
-		if(makeRed) newCube.renderer.material.color = new Color (1, 0, 0);
-		if(makeGreen) newCube.renderer.material.color = new Color (0, 1, 0);
+		if(!spike) newPlatform = (GameObject)Instantiate(Platform,  (transform.position + new Vector3(x, 0, z)) * (1 + OffsetFactor), transform.rotation);
+		else       newPlatform = (GameObject)Instantiate(Spike,  (transform.position + new Vector3(x, 0, z)) * (1 + OffsetFactor), transform.rotation);
+		newPlatform.transform.Rotate(90 * Random.Range(0,4) * new Vector3(0, 1, 0));
+		newPlatform.transform.parent = transform;
+		newPlatform.GetComponent<CubeScript>().PlayerObject = PlayerObject;
+	}
+
+	void CreateDrug(float x, float z)
+	{
+		GameObject drug = (GameObject)Instantiate (Drug, (transform.position + new Vector3 (x, 1, z)) * (1 + OffsetFactor), transform.rotation);
+		drug.transform.parent = transform;
+		drug.GetComponent<PowerUpScript>().PlayerObject = PlayerObject;
 	}
 
 	int Generate(float z, bool firstPass = true) 
 	{
+		drugSpawnRate = 25 - Mathf.Floor (Master.localValueMax / 25f);
 		int i;
 		int[] copyDepth = new int[(int)Size.x];
 		bool[] copyPath = new bool[(int)Size.x];
@@ -192,21 +212,6 @@ public class CubeGenerator : MonoBehaviour
 			return Generate(z, false);
 		}
 
-		string st = "set: ";
-		for (int j = 0; j < Size.x; j++) {
-			st += set[j]?"true ":"false ";
-		}
-		st += " \t\tdepth: ";
-		for (int j = 0; j < Size.x; j++) {
-			st += "" + depth[j] + ' ';
-		}
-		st += "\t\tpath: ";
-		for (int j = 0; j < Size.x; j++) {
-			st += path[j]?"true ":"false ";
-		}
-		st += "\t count: " + i;
-		//Debug.Log (st); 
-
 		// ---------------------------------
 		// ------- pass, create nodes ------
 
@@ -214,6 +219,24 @@ public class CubeGenerator : MonoBehaviour
 		{
 			if(depth[x] != 0) Create(x, z, false, path[x]);
 			else Create(x, z, true, false);
+		}
+
+		// ---------------------------------
+		// ---- check to generate drugs ----
+
+		if (z - lastDrugSpawn > drugSpawnRate) {
+			int count = 0;
+			for(int x = 0 ; x < Size.x ; x++)
+			{
+				count += path[x] ? 1 : 0;
+			}
+			count -= (int)Mathf.Floor(Random.value * count);
+			for(int x = 0 ; x < Size.x ; x++)
+			{
+				count -= path[x] ? 1 : 0;
+				if(count == 0 && path[x]) CreateDrug(x,z);
+			}
+			lastDrugSpawn = (int) z;
 		}
 		return 0;
 	}
@@ -226,7 +249,6 @@ public class CubeGenerator : MonoBehaviour
 	public void Extend() 
 	{
 		n++;
-		Debug.Log (n);
 		if ( n == Size.x ) 
 		{
 			Generate(end);
