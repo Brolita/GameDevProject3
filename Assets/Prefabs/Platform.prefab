@@ -223,10 +223,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c4f06934a4f80d45bcc88c836928154, type: 3}
+  m_Script: {fileID: 11500000, guid: aed79f91c172cc3459ad048219e5ec86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerObject: {fileID: 100000, guid: f690814d0213a514d975ab20fdcd67b2, type: 2}
+  PlayerObject: {fileID: 0}
   diff: 5
   Speed: 0
   Boulder: {fileID: 0}
