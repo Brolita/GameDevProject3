@@ -75,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.24060011, z: 25}
+  m_LocalPosition: {x: 0, y: -2.62770009, z: 25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -131,7 +131,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: af2001941891c194c816069dd6573a0b, type: 2}
+  - {fileID: 2100000, guid: eb5f8bcce00b0044a9b77fe8c11439b6, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -151,7 +151,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: af2001941891c194c816069dd6573a0b, type: 2}
+  - {fileID: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -165,7 +165,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: 6b1ab3593fd4f874f96bcd09f5754413, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 23fdd1cab22675248b82dbf77b4dbba8, type: 3}
 --- !u!33 &3300002
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -198,8 +198,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: .510227799, z: 1}
-  m_Center: {x: 0, y: -.244886637, z: 0}
+  m_Size: {x: 1, y: .330769509, z: 1}
+  m_Center: {x: 0, y: .163710117, z: 0}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -223,11 +223,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7c4a246e8ec04ce99fea941bc647ca0, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c4f06934a4f80d45bcc88c836928154, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerObject: {fileID: 0}
-  diff: 1
+  PlayerObject: {fileID: 100000, guid: f690814d0213a514d975ab20fdcd67b2, type: 2}
+  diff: 5
   Speed: 0
   Boulder: {fileID: 0}
   Decay: 4

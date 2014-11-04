@@ -1685,15 +1685,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 100056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f8cb36e2a6710a4484432d470bc4a17, type: 3}
+  m_Script: {fileID: 11500000, guid: 56e6c511585f2e5418d6c8fe50c2acf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectLength: 15
-  strength: 40
+  effectLength: 0
+  strength: 0
   attraction: 0
-  angularSpeed: 5
-  angularAcceleraton: .100000001
-  PlayerObject: {fileID: 100000, guid: 67ceffcb03b09eb4c9b18ff3aa29ca0d, type: 2}
+  angularSpeed: 0
+  angularAcceleraton: 0
+  PlayerObject: {fileID: 100000, guid: f690814d0213a514d975ab20fdcd67b2, type: 2}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1
