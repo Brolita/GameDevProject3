@@ -6,6 +6,7 @@ public class Master {
 	public static float value;
 	public static float target;
 	public static float speed;
+	public static bool done = false;
 
 	private static float _effectLength = 0;
 	public static float effectLength {
@@ -37,10 +38,10 @@ public class Master {
 	private static float c = 1;
 
 	private static float maxSpeed = 1f;			
-	private static float PONRMax = 400f;
-	private static float realMax = 420f;
-	private static float PONRMin = -360f;
-	private static float realMin = -380f;
+	public static float PONRMax = 400f;
+	public static float realMax = 420f;
+	public static float PONRMin = -360f;
+	public static float realMin = -380f;
 	
 	public static void start(Material s, Material sI) {
 		Master.value = 0;
@@ -56,6 +57,16 @@ public class Master {
 	}
 	
 	public static bool update() {
+
+		if (Master.target > Master.PONRMax && Master.value > Master.PONRMax) {
+			Master.done = true;
+			return true;
+		}
+		
+		if (Master.value <= Master.PONRMin && Master.localValueMax >= -Master.PONRMin) {
+			Master.done = true;
+			return true;
+		}
 
 		if (freeze != 0) {
 			freeze --;
@@ -80,23 +91,12 @@ public class Master {
 		Master.value += Master.dv;						// update value
 
 		// check for new local max
-		if (Master.value > Master.target && Master.target > Master.localValueMax) 
+		if (Master.value >= Master.target && Master.target > Master.localValueMax) 
 			Master.localValueMax = Master.target;
 
 		//calculate the speed for this step
 		Master.speed = Master.maxSpeed / (1f + Mathf.Exp (- Master.value / 200));
 
-		if (Master.target > Master.PONRMax) {
-			Debug.Log("Point of no return Max past");
-			return true;
-		}
-
-		if (Master.target < Master.PONRMin) {
-			Debug.Log("Point of no return Min past");
-			return true;
-		}
-
-		//Debug.Log (Master.value);
 
 		return false;
 	}

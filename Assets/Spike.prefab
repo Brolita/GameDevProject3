@@ -58,11 +58,13 @@ GameObject:
   - 4: {fileID: 400006}
   - 33: {fileID: 3300002}
   - 65: {fileID: 6500000}
-  - 23: {fileID: 2300002}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
+  - 54: {fileID: 5400000}
+  - 23: {fileID: 2300002}
   m_Layer: 0
   m_Name: Spike
-  m_TagString: Spike
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -267,7 +269,7 @@ Transform:
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: -.5, z: 0}
-  m_LocalScale: {x: 1.5, y: 2.5, z: 1.5}
+  m_LocalScale: {x: 1.55999994, y: 2.5, z: 1.55999994}
   m_Children:
   - {fileID: 400002}
   - {fileID: 400000}
@@ -428,7 +430,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 91c182eff58258348933befd22ba826f, type: 2}
+  - {fileID: 2100000, guid: af2001941891c194c816069dd6573a0b, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -686,6 +688,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100022}
   m_Mesh: {fileID: 4300000, guid: 912ad13383d24a5418f18592e4708049, type: 3}
+--- !u!54 &5400000
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -693,7 +710,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: .510227799, z: 1}
@@ -755,7 +772,19 @@ MonoBehaviour:
   diff: 1
   Speed: 0
   Boulder: {fileID: 0}
-  Decay: 3
+  Decay: 4
+  passed: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5540e50ffde76714a93dc5c8185665bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

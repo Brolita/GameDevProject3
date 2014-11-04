@@ -17,6 +17,14 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	//@TODO: Add checks x = 1 in size, add start pos for player. Make a platform that looks better.
 	void Update () {
+		if(Master.done) 
+		{
+			if(Master.target >= Master.PONRMax)
+			{
+				rigidbody.velocity = new Vector3(0, 0, rigidbody.velocity.z * 1.05f);
+			}  
+			return;
+		}
 		speed = Master.speed * maxspeed;
 		if (Input.GetKey(KeyCode.D)) {
 			rigid.velocity = new Vector3(6f * Master.speed,rigid.velocity.y,speed);		
@@ -28,10 +36,7 @@ public class PlayerMovement : MonoBehaviour {
 			rigid.velocity = new Vector3(0,rigid.velocity.y,speed);			
 		}
 		if (Input.GetKeyDown(KeyCode.Space) && transform.position.y < .01f) {
-			gameObject.rigidbody.AddForce(0,3f + 6f * Master.speed,0,ForceMode.VelocityChange);		
-		}
-		if (Vector3.Distance (transform.position, cubeGen.gameObject.transform.position) > 25) {
-			cubeGen.Extend();		
+			gameObject.rigidbody.AddForce(0,3f + 3f * Master.speed,0,ForceMode.VelocityChange);		
 		}
 	
 	}

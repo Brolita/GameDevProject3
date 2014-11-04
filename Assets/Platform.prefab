@@ -12,6 +12,7 @@ GameObject:
   - 65: {fileID: 6500000}
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
+  - 54: {fileID: 5400000}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -100,7 +101,7 @@ Transform:
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: -.5, z: 0}
-  m_LocalScale: {x: 1.5, y: 2.5, z: 1.5}
+  m_LocalScale: {x: 1.55999994, y: 2.5, z: 1.55999994}
   m_Children:
   - {fileID: 400002}
   - {fileID: 400006}
@@ -172,6 +173,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_Mesh: {fileID: 4300000, guid: 58a436c1a62fd194fbcffddcc4857b6d, type: 3}
+--- !u!54 &5400000
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -179,7 +195,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: .510227799, z: 1}
@@ -214,7 +230,8 @@ MonoBehaviour:
   diff: 1
   Speed: 0
   Boulder: {fileID: 0}
-  Decay: 3
+  Decay: 4
+  passed: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

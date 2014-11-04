@@ -5,7 +5,6 @@ public class RemoveSpikes : MonoBehaviour
 {
 	void OnTriggerEnter(Collider other) 
 	{
-		print(transform.position.y);
 		if(other.tag == "Remover")
 		{
 			Transform[] children = GetComponentsInChildren<Transform>();
