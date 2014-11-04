@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Master : MonoBehaviour {
+public class Master {
 	
 	public static float value;
 	public static float target;
@@ -21,9 +21,14 @@ public class Master : MonoBehaviour {
 		}
 	}
 
+	private static Camera camera;
+	private static Material skybox;
+	private static Material skyboxInverted;
+	private static int freeze = 0;
+
 	private static float dv;
 	private static float d2v;
-	private static float localValueMax;
+	public static float localValueMax;
 	
 	public  static float dt = .05f;
 
@@ -37,28 +42,35 @@ public class Master : MonoBehaviour {
 	private static float PONRMin = -360f;
 	private static float realMin = -380f;
 	
-	public static void start() {
+	public static void start(Material s, Material sI) {
 		Master.value = 0;
 		Master.target = 0;
 		Master.effectLength = 0;
 		Master.dv = 0;
 		Master.d2v = 0;
 		Master.localValueMax = 0;
+		Master.skybox = s;
+		Master.skyboxInverted = sI;
 		// max speed is multiplied to allow it to actually reach its max value
 		Master.maxSpeed *= 1 + Mathf.Exp (-2); 
 	}
-
-	public static float ratio() {
-		return (Master.value - Master.realMin) / (Master.realMax - Master.realMin);
-	}
-
+	
 	public static bool update() {
+
+		if (freeze != 0) {
+			freeze --;
+			if(freeze == 0) {
+				RenderSettings.skybox = Master.skybox;
+				Master.target = -Master.localValueMax;
+			}
+			return false;
+		}
 		// effect length
 		if(Master.effectLength > 0) {					// if were in an effect
 			Master.effectLength -= Master.dt;			// decement the effect length
 			if (Master.effectLength <= 0) {				// if we've passed the effect length
 				Master._effectLength = 0;				// set the length to 0
-				Master.target = -localValueMax;			// target with withdrawl amount
+				Master.target = -Master.localValueMax;	// target with withdrawl amount
 			}
 		}
 
@@ -84,8 +96,20 @@ public class Master : MonoBehaviour {
 			return true;
 		}
 
-		//Debug.Log ("Speed: " + Master.speed + " Value: " + Master.value + " Target: " + Master.target + " Effect Length: " + Master.effectLength);
+		//Debug.Log (Master.value);
 
 		return false;
+	}
+
+	public static float ratio() {
+		return (Master.value - Master.realMin) / (Master.realMax - Master.realMin);
+	}
+
+	public static void hit() {
+		Master.freeze = 3;
+		RenderSettings.skybox = Master.skyboxInverted;
+		Master.value = Master.realMin;
+		Master.target = Master.value;
+		Master.speed = 0;
 	}
 }
