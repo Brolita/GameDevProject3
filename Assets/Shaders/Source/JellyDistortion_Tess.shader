@@ -1,50 +1,48 @@
-﻿Shader "Custom/Jelly Distortion Tess" {
+﻿Shader "Custom/Jelly Distortion TESS" {
         Properties {
-        	_EdgeLength ("Edge length", Range(2,50)) = 5
-            _Phong ("Phong Strengh", Range(0,1)) = 0.5
             _MainTex ("Base (RGB)", 2D) = "white" {}
+            _EdgeLength ("Edge Length", range(0,15)) = 1 
             _NormalMap ("Normalmap", 2D) = "bump" {}
+            _Color ("Color", color) = (1,1,1,0)
             _SpecColor ("Spec color", color) = (0.5,0.5,0.5,0.5)
             _LightIntensity ("Light Intensity", range(0,5)) = 1.0
         }
         SubShader {
-            Tags { "RenderType"="Opaque" }
+           	Tags { "Queue"="Transparent" "RenderType"="Transparent" }
             LOD 300
 
-            
-            CGPROGRAM
+   			CGPROGRAM
             #pragma surface surf BlinnPhong vertex:disp tessellate:tessEdgeBased tessphong:_Phong
             #pragma target 5.0
            	#include "Tessellation.cginc"
            	#include "UnityCG.cginc"
            	
-           	bool   _EffectedByLight;
-            float _EdgeLength;
-            float _Phong;
-            sampler2D _DispTex;
-            float _Displacement;
-            float _LightIntensity;
-            
-            
-        
-         
 
-        	struct appdata {
+	
+			sampler2D _DispTex;
+            float _Alpha;
+			float _EdgeLength;
+			
+			uniform float4 unity_lightColor[4];
+			
+			  	
+  
+
+
+            struct appdata {
                 float4 vertex : POSITION;
                 float4 color : COLOR;
                 float4 tangent : TANGENT;
                 float3 normal : NORMAL;
                 float2 texcoord : TEXCOORD0;
             };
-
+            
             float4 tessEdgeBased (appdata v0, appdata v1, appdata v2)
             {
             
                 return UnityEdgeLengthBasedTess (v0.vertex, v1.vertex, v2.vertex,_EdgeLength);
             }
             
-
-   
 			float3 mod289(float3 x) {
 			  return x - floor(x * (1.0 / 289.0)) * 289.0;
 			}
@@ -137,22 +135,61 @@
 			  return 42.0 * dot( m*m, float4( dot(p0,x0), dot(p1,x1), 
 			                                dot(p2,x2), dot(p3,x3) ) );
 			  }
- 
-			
-	
+			  
+			half4 LightingSimple (SurfaceOutput s, half3 lightDir, half3 viewDir, half atten) {
 
+				half4 c;
+				half3 o = (1.0,1.0,1.0);
+				
+		        c.rgb = (s.Albedo - o.xyz);
+		        c.a = s.Alpha;
+		        return c;
+	    	}
+ 
+	 
+		
             void disp (inout appdata v)
             {
             
-   				float displacement  =  snoise(v.vertex.xyz) * _LightIntensity;
-   				
-   			
-                v.vertex.xyz += v.normal *  displacement *	sin(tan(cos(_Time))) * mag / 2.5 ;
+   	
+            		  	
+		   		const int MAX_DISP = 2;
 
- 				
- 				
- 		
- 		
+        	
+        		const float e = 2.7182818284590452353602874713527 ;
+		  	
+		  		
+		  		float mag = 0.0;
+		  		float intensity = 0.0;
+		  		int numLights = 0;
+		  		
+	
+		  		
+		
+		  			
+		  		for( int i = 0; i < 5; i++) {
+		  				
+		  				if(unity_LightColor[i].r > 0) {
+		  					numLights++;
+		  				}
+		  				
+		  				intensity += unity_LightColor[i].r;;
+
+		  			
+		  		}
+		  		
+
+		  		mag += intensity / numLights;
+		  			
+		  			
+		
+		  		
+		  		float finalDisp = MAX_DISP/(1+pow(e,-(3*MAX_DISP*(mag-1.0))));
+		  		
+   				float displacement  =  snoise(v.vertex.xyz) * finalDisp;
+   			
+                v.vertex.xyz += v.normal *  displacement *	sin(tan(cos(_Time))) / 2.5;
+            
 
    			}
    			
@@ -165,23 +202,51 @@
       		
 		    sampler2D _MainTex;
 		    sampler2D _NormalMap;
+		    
+		  	void surf (Input IN, inout SurfaceOutput o) {
+		  	
+
+        		const half MAX_SATURATION = 1.0;
+        	
+        		const float e = 2.7182818284590452353602874713527 ;
+		  	
+		  		
+		  		float mag = 0.0;
+		  		float intensity = 0.0;
+		  		int numLights = 0;
+		  		
 	
-         	void surf (Input IN, inout SurfaceOutput o) {
-         	
-         	                
-                
- 				float intensityDecay = sqrt(dir.x*dir.x + dir.y*dir.y + dir.z*dir.z);
-         	
-     			float mag = _LightColor0.r * log(intensityDecay);
- 				
-         	
-                half4 c = tex2D (_MainTex, IN.uv_MainTex);
-                o.Albedo = c.rgb;
-                o.Specular = 0.2;
-                o.Gloss = 1.0;
-                o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_MainTex));
-                
-            }
+		  		
+		
+		  			
+		  		for( int i = 0; i < 5; i++) {
+		  				
+		  				if(unity_LightColor[i].r > 0) {
+		  					numLights++;
+		  				}
+		  				
+		  				intensity += unity_LightColor[i].r;
+
+		  			
+		  		}
+		  		
+
+		  		mag += intensity / numLights;
+		  		
+		  		float finalSaturation = MAX_SATURATION/(1+pow(e,-(MAX_SATURATION*(mag-1.0))));
+		  		
+	
+				half4 c = tex2D (_MainTex, IN.uv_MainTex);
+				
+				
+				float greyScale = dot(c.rgb, fixed3(.222, .707, .071));  // Convert to greyscale
+				c.rgb  = lerp(float3(greyScale, greyScale, greyScale), c.rgb,  finalSaturation  );
+				
+				o.Normal = UnpackNormal (tex2D (_NormalMap, IN.uv_BumpMap));
+				o.Albedo = c.rgb;
+				o.Alpha = _Alpha;
+			}
+		
             ENDCG
         }
         FallBack "Custom/FLAT Jelly Distortion"

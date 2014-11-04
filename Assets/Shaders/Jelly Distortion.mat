@@ -17,7 +17,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 8e3ff3e27ca4bc54dda56e89e0550dfa, type: 3}
+          m_Texture: {fileID: 2800000, guid: 1722e3e76a00c4da8b27a5b300deca57, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -58,16 +58,12 @@ Material:
     m_Floats:
       data:
         first:
-          name: _Shininess
-        second: .078125
-      data:
-        first:
           name: _Saturation
         second: 0
       data:
         first:
           name: _EdgeLength
-        second: 5
+        second: 2
       data:
         first:
           name: _Tess
@@ -75,11 +71,23 @@ Material:
       data:
         first:
           name: _Phong
-        second: 1
+        second: 0
       data:
         first:
           name: _Displacement
         second: .692857146
+      data:
+        first:
+          name: _LightIntensity
+        second: 0
+      data:
+        first:
+          name: _Alpha
+        second: 0
+      data:
+        first:
+          name: _Shininess
+        second: .078125
       data:
         first:
           name: _RimPower
@@ -88,10 +96,6 @@ Material:
         first:
           name: _Parallax
         second: .0199999996
-      data:
-        first:
-          name: _LightIntensity
-        second: 1.25
     m_Colors:
       data:
         first:

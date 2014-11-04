@@ -17,7 +17,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 454585cca07f953479b902a00ead3015, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -34,11 +34,30 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ToonShade
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
+      data:
+        first:
+          name: _Saturation
+        second: 41.1428566
+      data:
+        first:
+          name: _EdgeLength
+        second: 5
       data:
         first:
           name: _Tess
         second: 1
+      data:
+        first:
+          name: _Phong
+        second: .5
       data:
         first:
           name: _Displacement
@@ -49,8 +68,8 @@ Material:
         second: 1
       data:
         first:
-          name: _Saturation
-        second: 19.4285717
+          name: _Alpha
+        second: 1
     m_Colors:
       data:
         first:
