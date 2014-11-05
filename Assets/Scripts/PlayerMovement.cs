@@ -8,8 +8,10 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject remover;
 	public float removerRadius;
 	private float maxspeed;
+	
 	// Use this for initialization
 	void Start () {
+
 		rigid = GetComponent<Rigidbody>();
 		cubeGen = GameObject.Find ("CubeGen").GetComponent<CubeGenerator>();
 		maxspeed = speed;
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour {
 		if(coll.tag == "Spike")
 		{
 			Master.hit ();
+			
 			//GameObject r = (GameObject)Instantiate (remover, transform.position, transform.rotation);
 			//r.GetComponent<SphereCollider>().radius = removerRadius;
 		}

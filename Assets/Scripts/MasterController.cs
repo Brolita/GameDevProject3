@@ -113,5 +113,6 @@ public class Master {
 		Master.value = Master.realMin;
 		Master.target = Master.value;
 		Master.speed = 0;
+
 	}
 }

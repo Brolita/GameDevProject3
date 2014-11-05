@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Jelly Distortion
-  m_Shader: {fileID: 4800000, guid: 088dc2fc0ac8e43f8bef64e70445a58f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6d9c4bf7ffd67554fbbab3c5c9805626, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -58,12 +58,24 @@ Material:
     m_Floats:
       data:
         first:
-          name: _Saturation
+          name: _Shininess
+        second: .078125
+      data:
+        first:
+          name: _LightIntensity
         second: 0
       data:
         first:
           name: _EdgeLength
         second: 2
+      data:
+        first:
+          name: _Saturation
+        second: 0
+      data:
+        first:
+          name: _Alpha
+        second: 0
       data:
         first:
           name: _Tess
@@ -76,18 +88,6 @@ Material:
         first:
           name: _Displacement
         second: .692857146
-      data:
-        first:
-          name: _LightIntensity
-        second: 0
-      data:
-        first:
-          name: _Alpha
-        second: 0
-      data:
-        first:
-          name: _Shininess
-        second: .078125
       data:
         first:
           name: _RimPower
