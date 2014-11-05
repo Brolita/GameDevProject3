@@ -145,7 +145,7 @@
 			{
 				for(int x = 0 ; x < Size.x ; x++)
 				{
-					Create(x, z);
+					Create(x, z, PlayerObject.transform.position.z - z == 49 );
 				}
 				return 0;
 			}
