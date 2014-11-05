@@ -8,15 +8,28 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject remover;
 	public float removerRadius;
 	private float maxspeed;
+	public Animator anim;
+	GameObject mainCam;
+	Transform tf;
+	float jmpTmr =30;
 	// Use this for initialization
 	void Start () {
+		anim = GetComponentInChildren<Animator>();
+
+		tf  = GetComponent<Transform>();
+		mainCam = GameObject.FindGameObjectWithTag("MainCamera");
 		rigid = GetComponent<Rigidbody>();
 		cubeGen = GameObject.Find ("CubeGen").GetComponent<CubeGenerator>();
 		maxspeed = speed;
 	}
 	// Update is called once per frame
-	//@TODO: Add checks x = 1 in size, add start pos for player. Make a platform that looks better.
+	//TODO: Add checks x = 1 in size, add start pos for player. Make a platform that looks better.
 	void Update () {
+		jmpTmr--;
+		mainCam.transform.position = new Vector3(tf.position.x,
+		                                         tf.position.y+2f,
+		                                         tf.position.z - 5f);
+		tf.rotation = Quaternion.identity;
 		if(Master.done) 
 		{
 			if(Master.target >= Master.PONRMax)
@@ -27,15 +40,24 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		speed = Master.speed * maxspeed;
 		if (Input.GetKey(KeyCode.D)) {
+
+			//Vector3 lerpPos = tf.position + Vector3.right;
+			//Vector3.Lerp(tf.position,lerpPos,1f);
 			rigid.velocity = new Vector3(6f * Master.speed,rigid.velocity.y,speed);		
 		}
 		else if (Input.GetKey(KeyCode.A)) {
+			//Vector3 lerpPos = tf.position + Vector3.left;
+			//Vector3.Lerp(tf.position,lerpPos,Master.ratio()*speed);
 			rigid.velocity = new Vector3(-6f * Master.speed,rigid.velocity.y,speed);			
 		}
 		else {
+			//Vector3 lerpPos = tf.position + Vector3.forward * speed;
+			//Vector3.Lerp(tf.position,lerpPos,100f);
+			anim.Play("walk");
 			rigid.velocity = new Vector3(0,rigid.velocity.y,speed);			
 		}
-		if (Input.GetKeyDown(KeyCode.Space) && transform.position.y < .01f) {
+		if (Input.GetKeyDown(KeyCode.Space) && transform.position.y < .01f && jmpTmr<0) {
+			anim.SetTrigger("jumpStart");
 			gameObject.rigidbody.AddForce(0,3f + 3f * Master.speed,0,ForceMode.VelocityChange);		
 		}
 	

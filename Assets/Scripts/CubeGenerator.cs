@@ -30,6 +30,7 @@
 		/// </summary>
 		public int minimumPathCount;
 
+	 public int cubesDestroyed;
 		private int[] depth;
 		private bool[] path;
 		private int lastDrugSpawn;
@@ -88,7 +89,11 @@
 		{
 			GetComponent<BoxCollider>().center = new Vector3 (Size.x / 2f -.5f, -.5f, PlayerObject.transform.position.z + ((end - PlayerObject.transform.position.z) / 2f));
 			GetComponent<BoxCollider> ().size = new Vector3 (Size.x, Size.y, end - PlayerObject.transform.position.z);	
+		print (end - PlayerObject.transform.position.z);
+		if(end - PlayerObject.transform.position.z <0){
+			Extend();
 		}
+	}
 		
 		void Start () 
 		{
@@ -260,7 +265,11 @@
 		{
 			return 1 / (1 + Mathf.Exp (depth[x] - spawnMissModifer));
 		}
-
+	public void CubeCount(){
+		if (cubesDestroyed % Size.x == 0){
+			Extend();
+		}
+	}
 		public void Extend() 
 		{
 			n++;

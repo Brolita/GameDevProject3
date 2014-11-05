@@ -33,14 +33,15 @@ public class CubeScript: MonoBehaviour {
 	
 	}
 
-	void OnDisable() {
-		if(cg) cg.Extend ();
-	}
+	//void OnDisable() {
+	//	if(cg) cg.Extend ();
+	//}
 
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(PlayerObject.transform.position.z > transform.position.z + diff)
 		{
+
 			passed = true;
 		}
 
@@ -54,7 +55,7 @@ public class CubeScript: MonoBehaviour {
 
 			gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.2f,-1.3f,0.0f) * Random.value ,ForceMode.Impulse);
 			
-			
+			cg.cubesDestroyed++;
 			Destroy(gameObject,Decay);
 			
 		}
