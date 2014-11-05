@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 67b3e2a66ee326443a3145878659dede
+guid: ca1ae093e3e953047863cf52ef56d4af
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -10,9 +10,7 @@ ModelImporter:
     400002: pfxToon1
     400004: pSphere1
     2300000: pSphere1
-    2300002: //RootNode
     3300000: pSphere1
-    3300002: //RootNode
     4300000: pSphere1
     9500000: //RootNode
   materials:

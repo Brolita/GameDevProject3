@@ -2,7 +2,6 @@
         Properties {
             _MainTex ("Base (RGB)", 2D) = "white" {}
             _EdgeLength ("Edge Length", range(0,15)) = 1 
-            _Phong ("Phong Strengh", Range(0,1)) = 0.5
             _NormalMap ("Normalmap", 2D) = "bump" {}
             _Color ("Color", color) = (1,1,1,0)
             _SpecColor ("Spec color", color) = (0.5,0.5,0.5,0.5)
@@ -11,9 +10,6 @@
         SubShader {
            	Tags { "Queue"="Transparent" "RenderType"="Transparent" }
             LOD 300
-            
-            
-            
 
    			CGPROGRAM
             #pragma surface surf BlinnPhong vertex:disp tessellate:tessEdgeBased tessphong:_Phong
@@ -21,16 +17,17 @@
            	#include "Tessellation.cginc"
            	#include "UnityCG.cginc"
            	
-           	
-           	float _Phong;
-            float _Alpha;
-			float _EdgeLength;
-			sampler2D _DispTex;
-			
 
 	
+			sampler2D _DispTex;
+            float _Alpha;
+			float _EdgeLength;
 			
 			uniform float4 unity_lightColor[4];
+			
+			  	
+  
+
 
             struct appdata {
                 float4 vertex : POSITION;
