@@ -46,11 +46,14 @@ public class m : MonoBehaviour {
 	}
 
 	IEnumerator mEnd1() {
+		GameObject.Find ("Player").GetComponentInChildren<Camera> ().GetComponent<VolumeController> ().enabled = false;
+		GameObject.Find ("Player").GetComponentInChildren<Camera> ().GetComponent<AudioSource> ().volume = .2f;
 		yield return new WaitForSeconds (2);
 		Transform[] platforms = GameObject.Find ("CubeGen").GetComponentsInChildren<Transform> ();
 		for (int i = 0; i < platforms.Length; i++) {
 			Destroy(platforms[i].gameObject);
 		}
+		GameObject.Find ("Player").GetComponentInChildren<Camera> ().GetComponent<AudioSource> ().volume = 1f;
 		yield return new WaitForSeconds (3);
 		Application.Quit ();
 		yield break;
