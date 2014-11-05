@@ -11,7 +11,7 @@ public class m : MonoBehaviour {
 		StartCoroutine (mUpdate ());
 	}
 	void Update() {
-		GetComponent<Light> ().intensity = 1.5f*Master.ratio();
+		GetComponent<Light> ().intensity = 2f*Master.ratio();
 
 
 	}
@@ -36,7 +36,7 @@ public class m : MonoBehaviour {
 		} else if (player.transform.position.y < -8f) {
 			StartCoroutine (mEnd2 ());
 			yield break;
-		} else if (player.rigidbody.velocity.z > 100f) {
+		} else if (player.rigidbody.velocity.z > 10f) {
 			StartCoroutine (mEnd3 ());
 			yield break;
 		}
@@ -62,7 +62,7 @@ public class m : MonoBehaviour {
 	}
 
 	IEnumerator mEnd3() {
-		if (player.rigidbody.velocity.z > 10000f) {
+		if (player.rigidbody.velocity.z > 100f) {
 			Application.Quit ();
 			yield break;
 		}

@@ -22,6 +22,7 @@
 			sampler2D _DispTex;
             float _Alpha;
 			float _EdgeLength;
+			float _Phong;
 			
 			uniform float4 unity_lightColor[4];
 			
@@ -153,7 +154,7 @@
             
    	
             		  	
-		   		const int MAX_DISP = 2;
+		   		const int MAX_DISP = 1;
 
         	
         		const float e = 2.7182818284590452353602874713527 ;
@@ -184,7 +185,7 @@
 		  			
 		
 		  		
-		  		float finalDisp = MAX_DISP/(1+pow(e,-(3*MAX_DISP*(mag-1.0))));
+		  		float finalDisp = MAX_DISP/(1+pow(e,-(3*MAX_DISP*(mag-2.0))));
 		  		
    				float displacement  =  snoise(v.vertex.xyz) * finalDisp;
    			

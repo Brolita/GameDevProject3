@@ -10,7 +10,9 @@ ModelImporter:
     400002: pfxToon1
     400004: pSphere1
     2300000: pSphere1
+    2300002: //RootNode
     3300000: pSphere1
+    3300002: //RootNode
     4300000: pSphere1
     9500000: //RootNode
   materials:

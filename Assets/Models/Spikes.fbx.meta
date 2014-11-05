@@ -13,6 +13,7 @@ ModelImporter:
     100014: pPyramid7
     100016: pPyramid8
     100018: //RootNode
+    100020: Spike
     400000: back
     400002: pPyramid1
     400004: pPyramid2
@@ -23,6 +24,7 @@ ModelImporter:
     400014: pPyramid7
     400016: pPyramid8
     400018: //RootNode
+    400020: Spike
     2300000: pPyramid1
     2300002: pPyramid2
     2300004: pPyramid3
@@ -31,6 +33,7 @@ ModelImporter:
     2300010: pPyramid6
     2300012: pPyramid7
     2300014: pPyramid8
+    2300016: Spike
     3300000: pPyramid1
     3300002: pPyramid2
     3300004: pPyramid3
@@ -39,6 +42,7 @@ ModelImporter:
     3300010: pPyramid6
     3300012: pPyramid7
     3300014: pPyramid8
+    3300016: Spike
     4300000: pPyramid1
     4300002: pPyramid2
     4300004: pPyramid3
@@ -47,6 +51,7 @@ ModelImporter:
     4300010: pPyramid6
     4300012: pPyramid7
     4300014: pPyramid8
+    4300016: Spike
     9500000: //RootNode
   materials:
     importMaterials: 1

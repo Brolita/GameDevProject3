@@ -174,7 +174,7 @@
 		  			
 		
 		  		
-		  		float finalDisp = MAX_DISP/(1+pow(e,-(3*MAX_DISP*(mag-1.0))));
+		  		float finalDisp = MAX_DISP/(1+pow(e,-(3*MAX_DISP*(mag-2.0))));
 		  		
    				float displacement  =  snoise(v.vertex.xyz) * finalDisp;
    			

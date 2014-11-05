@@ -32,6 +32,8 @@ ModelImporter:
     100052: Connect8
     100054: Connect9
     100056: //RootNode
+    100058: Drug
+    100060: pfxToon1
     400000: Ball1
     400002: Ball10
     400004: Ball11
@@ -61,6 +63,8 @@ ModelImporter:
     400052: Connect8
     400054: Connect9
     400056: //RootNode
+    400058: Drug
+    400060: pfxToon1
     2300000: Ball1
     2300002: Ball10
     2300004: Ball11
@@ -90,6 +94,7 @@ ModelImporter:
     2300052: Connect8
     2300054: Connect9
     2300056: //RootNode
+    2300058: Drug
     3300000: Ball1
     3300002: Ball10
     3300004: Ball11
@@ -119,6 +124,7 @@ ModelImporter:
     3300052: Connect8
     3300054: Connect9
     3300056: //RootNode
+    3300058: Drug
     4300000: Drug_Root
     4300002: Connect13
     4300004: Connect12
@@ -148,6 +154,7 @@ ModelImporter:
     4300052: Ball3
     4300054: Ball2
     4300056: Ball1
+    4300058: Drug
     9500000: //RootNode
   materials:
     importMaterials: 1
