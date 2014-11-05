@@ -32,16 +32,16 @@ public class BackgroundThings : MonoBehaviour {
 		                                                   0,
 		                                                   Player.transform.position.z + 20f),
 		                                 Quaternion.identity);
-		ring3Rot = Random.Range(1,10);
+		ring3Rot = Random.Range(10,25);
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//GameObject cone1 = Instantiate(cone, 
-		ring1.transform.Rotate(0,0,ring1Rot);
-		ring2.transform.Rotate(0,0,ring2Rot);
-		ring3.transform.Rotate(0,0,ring3Rot);
+		ring1.transform.Rotate(0,0,ring1Rot *Master.ratio());
+		ring2.transform.Rotate(0,0,ring2Rot *Master.ratio());
+		ring3.transform.Rotate(0,0,ring3Rot *Master.ratio());
 		if (ring1.transform.position.z < Camera.main.transform.position.z){
 			Destroy(ring1);
 			ring1 = (GameObject) Instantiate(ring, new Vector3(cg.GetComponent<CubeGenerator>().Size.x/2, 
