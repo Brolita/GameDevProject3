@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: b7ff675205504374287c63499fb6b025
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ring: {fileID: 100000, guid: b3800fe051d1f0c48b602a68ce0870e0, type: 3}
+  - cone: {fileID: 100018, guid: 072e9e741d151f14bacd2cc8f40fc8ef, type: 2}
+  - rib: {fileID: 100004, guid: a7ec42d4db9a84b48820c0e0e4dfd98a, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
