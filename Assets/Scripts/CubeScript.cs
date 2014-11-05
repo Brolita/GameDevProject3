@@ -34,7 +34,7 @@ public class CubeScript: MonoBehaviour {
 	}
 
 	void OnDisable() {
-		if(cg) cg.Extend ();
+		if(cg && passed) cg.Extend ();
 	}
 
 	// Update is called once per frame
@@ -54,7 +54,7 @@ public class CubeScript: MonoBehaviour {
 			gameObject.GetComponent<BoxCollider>().isTrigger = false;
 
 			gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0.2f,-1.3f,0.0f) * Random.value ,ForceMode.Impulse);
-			
+			cg.Extend();
 			
 			Destroy(gameObject,Decay);
 			
