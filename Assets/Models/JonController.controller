@@ -210,10 +210,10 @@ Transition:
   m_TransitionDuration: .13940756
   m_TransitionOffset: 0
   m_Conditions:
-  - m_ConditionMode: 1
+  - m_ConditionMode: 5
     m_ConditionEvent: landing
     m_EventTreshold: 0
-    m_ExitTime: .932452202
+    m_ExitTime: .930000007
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0

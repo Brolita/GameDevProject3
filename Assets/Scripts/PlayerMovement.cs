@@ -8,10 +8,10 @@ public class PlayerMovement : MonoBehaviour {
 	public GameObject remover;
 	public float removerRadius;
 	private float maxspeed;
-	
+	Animator anim;
 	// Use this for initialization
 	void Start () {
-
+		anim = GetComponentInChildren<Animator>();
 		rigid = GetComponent<Rigidbody>();
 		cubeGen = GameObject.Find ("CubeGen").GetComponent<CubeGenerator>();
 		maxspeed = speed;
@@ -35,14 +35,22 @@ public class PlayerMovement : MonoBehaviour {
 			rigid.velocity = new Vector3(-6f * Master.speed,rigid.velocity.y,speed);			
 		}
 		else {
+			anim.SetFloat("Value",Master.ratio());
 			rigid.velocity = new Vector3(0,rigid.velocity.y,speed);			
 		}
 		if (Input.GetKeyDown(KeyCode.Space) && transform.position.y < .01f) {
+			anim.SetTrigger("jumpStart");
 			gameObject.rigidbody.AddForce(0,3f + 3f * Master.speed,0,ForceMode.VelocityChange);		
 		}
 	
 	}
+	void OnCollisionEnter(Collision coll ){
+		if (coll.transform.tag =="Platform"){
+			anim.SetTrigger("landing");
+			anim.SetTrigger("jumpStart");
 
+		}
+	}
 	void OnTriggerEnter(Collider coll) {
 		if(coll.tag == "Spike")
 		{
