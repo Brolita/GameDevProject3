@@ -4,12 +4,14 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 	Rigidbody rigid;
 	CubeGenerator cubeGen;
+	Transform tf;
 	public float speed = 7.0f;
 	public GameObject remover;
 	public float removerRadius;
 	private float maxspeed;
 	// Use this for initialization
 	void Start () {
+		tf = GetComponent<Transform>();
 		rigid = GetComponent<Rigidbody>();
 		cubeGen = GameObject.Find ("CubeGen").GetComponent<CubeGenerator>();
 		maxspeed = speed;
@@ -17,6 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	//@TODO: Add checks x = 1 in size, add start pos for player. Make a platform that looks better.
 	void Update () {
+		tf.rotation = Quaternion.identity;
 		if(Master.done) 
 		{
 			if(Master.target >= Master.PONRMax)
