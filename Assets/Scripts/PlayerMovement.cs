@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour {
 		mainCam.transform.position = new Vector3(tf.position.x,
 		                                         tf.position.y+2f,
 		                                         tf.position.z - 5f);
-		tf.rotation = Quaternion.identity;
+		//tf.rotation = Quaternion.identity;
 		if(Master.done) 
 		{
 			if(Master.target >= Master.PONRMax)
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour {
 		else {
 			//Vector3 lerpPos = tf.position + Vector3.forward * speed;
 			//Vector3.Lerp(tf.position,lerpPos,100f);
-			anim.Play("walk");
+			anim.SetFloat("Value",Master.ratio());
 			rigid.velocity = new Vector3(0,rigid.velocity.y,speed);			
 		}
 		if (Input.GetKeyDown(KeyCode.Space) && transform.position.y < .01f && jmpTmr<0) {

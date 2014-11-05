@@ -227,8 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4436500a6414f0e4397e17bd436a36f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectLength: 10
-  strength: 5
+  effectLength: 100
+  strength: 20
   attraction: 13
   angularSpeed: 3
   angularAcceleraton: 4
