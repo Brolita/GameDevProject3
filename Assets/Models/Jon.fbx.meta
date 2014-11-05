@@ -1,0 +1,900 @@
+fileFormatVersion: 2
+guid: 676f1796de786564b90c10fe6c595f9e
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Body
+    100002: GEO
+    100004: Head
+    100006: Head 1
+    100008: JOINTS
+    100010: //RootNode
+    100012: Jon
+    100014: Left_ankle
+    100016: Left_arm
+    100018: Left_ball
+    100020: Left_elbow
+    100022: Left_elbow 1
+    100024: Left_foot
+    100026: Left_hand
+    100028: Left_hand 1
+    100030: Left_hip
+    100032: Left_hip 1
+    100034: Left_knee
+    100036: Left_knee 1
+    100038: Left_leg
+    100040: Left_shoulder
+    100042: Left_shoulder 1
+    100044: Left_toe
+    100046: Neck
+    100048: pfxToon1
+    100050: Right_arm
+    100052: Right_ball
+    100054: Right_elbow
+    100056: Right_elbow 1
+    100058: Right_foot
+    100060: Right_foot 1
+    100062: Right_hand
+    100064: Right_hand 1
+    100066: Right_hip
+    100068: Right_hip 1
+    100070: Right_knee
+    100072: Right_knee 1
+    100074: Right_leg
+    100076: Right_shoulder
+    100078: Right_shoulder 1
+    100080: Right_toe
+    100082: Root
+    100084: Root_CTRL
+    100086: Top_head
+    100088: Torso
+    400000: Body
+    400002: GEO
+    400004: Head
+    400006: Head 1
+    400008: JOINTS
+    400010: //RootNode
+    400012: Jon
+    400014: Left_ankle
+    400016: Left_arm
+    400018: Left_ball
+    400020: Left_elbow
+    400022: Left_elbow 1
+    400024: Left_foot
+    400026: Left_hand
+    400028: Left_hand 1
+    400030: Left_hip
+    400032: Left_hip 1
+    400034: Left_knee
+    400036: Left_knee 1
+    400038: Left_leg
+    400040: Left_shoulder
+    400042: Left_shoulder 1
+    400044: Left_toe
+    400046: Neck
+    400048: pfxToon1
+    400050: Right_arm
+    400052: Right_ball
+    400054: Right_elbow
+    400056: Right_elbow 1
+    400058: Right_foot
+    400060: Right_foot 1
+    400062: Right_hand
+    400064: Right_hand 1
+    400066: Right_hip
+    400068: Right_hip 1
+    400070: Right_knee
+    400072: Right_knee 1
+    400074: Right_leg
+    400076: Right_shoulder
+    400078: Right_shoulder 1
+    400080: Right_toe
+    400082: Root
+    400084: Root_CTRL
+    400086: Top_head
+    400088: Torso
+    4300000: Body
+    4300002: Left_arm
+    4300004: Left_hand
+    4300006: Left_shoulder
+    4300008: Left_elbow
+    4300010: Head
+    4300012: Right_arm
+    4300014: Right_hand
+    4300016: Right_shoulder
+    4300018: Right_elbow
+    4300020: Left_leg
+    4300022: Left_foot
+    4300024: Left_hip
+    4300026: Left_knee
+    4300028: Right_leg
+    4300030: Right_foot
+    4300032: Right_hip
+    4300034: Right_knee
+    7400000: walk
+    7400002: run
+    7400004: jump start
+    7400006: in air
+    7400008: jump land
+    7400010: tired walk
+    9500000: //RootNode
+    13700000: Body
+    13700002: Head
+    13700004: Left_arm
+    13700006: Left_elbow
+    13700008: Left_foot
+    13700010: Left_hand
+    13700012: Left_hip
+    13700014: Left_knee
+    13700016: Left_leg
+    13700018: Left_shoulder
+    13700020: Right_arm
+    13700022: Right_elbow
+    13700024: Right_foot
+    13700026: Right_hand
+    13700028: Right_hip
+    13700030: Right_knee
+    13700032: Right_leg
+    13700034: Right_shoulder
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: walk
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Jon
+        weight: 1
+      - path: Jon/GEO
+        weight: 1
+      - path: Jon/GEO/Body
+        weight: 1
+      - path: Jon/GEO/Head
+        weight: 1
+      - path: Jon/GEO/Left_arm
+        weight: 1
+      - path: Jon/GEO/Left_elbow
+        weight: 1
+      - path: Jon/GEO/Left_foot
+        weight: 1
+      - path: Jon/GEO/Left_hand
+        weight: 1
+      - path: Jon/GEO/Left_hip
+        weight: 1
+      - path: Jon/GEO/Left_knee
+        weight: 1
+      - path: Jon/GEO/Left_leg
+        weight: 1
+      - path: Jon/GEO/Left_shoulder
+        weight: 1
+      - path: Jon/GEO/Right_arm
+        weight: 1
+      - path: Jon/GEO/Right_elbow
+        weight: 1
+      - path: Jon/GEO/Right_foot
+        weight: 1
+      - path: Jon/GEO/Right_hand
+        weight: 1
+      - path: Jon/GEO/Right_hip
+        weight: 1
+      - path: Jon/GEO/Right_knee
+        weight: 1
+      - path: Jon/GEO/Right_leg
+        weight: 1
+      - path: Jon/GEO/Right_shoulder
+        weight: 1
+      - path: Jon/Root_CTRL
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball/Left_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball/Right_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1/Top_head
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1/Left_hand
+          1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1/Right_hand
+          1
+        weight: 1
+      - path: pfxToon1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: run
+      takeName: Take 001
+      firstFrame: 60
+      lastFrame: 119
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Jon
+        weight: 1
+      - path: Jon/GEO
+        weight: 1
+      - path: Jon/GEO/Body
+        weight: 1
+      - path: Jon/GEO/Head
+        weight: 1
+      - path: Jon/GEO/Left_arm
+        weight: 1
+      - path: Jon/GEO/Left_elbow
+        weight: 1
+      - path: Jon/GEO/Left_foot
+        weight: 1
+      - path: Jon/GEO/Left_hand
+        weight: 1
+      - path: Jon/GEO/Left_hip
+        weight: 1
+      - path: Jon/GEO/Left_knee
+        weight: 1
+      - path: Jon/GEO/Left_leg
+        weight: 1
+      - path: Jon/GEO/Left_shoulder
+        weight: 1
+      - path: Jon/GEO/Right_arm
+        weight: 1
+      - path: Jon/GEO/Right_elbow
+        weight: 1
+      - path: Jon/GEO/Right_foot
+        weight: 1
+      - path: Jon/GEO/Right_hand
+        weight: 1
+      - path: Jon/GEO/Right_hip
+        weight: 1
+      - path: Jon/GEO/Right_knee
+        weight: 1
+      - path: Jon/GEO/Right_leg
+        weight: 1
+      - path: Jon/GEO/Right_shoulder
+        weight: 1
+      - path: Jon/Root_CTRL
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball/Left_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball/Right_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1/Top_head
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1/Left_hand
+          1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1/Right_hand
+          1
+        weight: 1
+      - path: pfxToon1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: jump start
+      takeName: Take 001
+      firstFrame: 120
+      lastFrame: 137
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Jon
+        weight: 1
+      - path: Jon/GEO
+        weight: 1
+      - path: Jon/GEO/Body
+        weight: 1
+      - path: Jon/GEO/Head
+        weight: 1
+      - path: Jon/GEO/Left_arm
+        weight: 1
+      - path: Jon/GEO/Left_elbow
+        weight: 1
+      - path: Jon/GEO/Left_foot
+        weight: 1
+      - path: Jon/GEO/Left_hand
+        weight: 1
+      - path: Jon/GEO/Left_hip
+        weight: 1
+      - path: Jon/GEO/Left_knee
+        weight: 1
+      - path: Jon/GEO/Left_leg
+        weight: 1
+      - path: Jon/GEO/Left_shoulder
+        weight: 1
+      - path: Jon/GEO/Right_arm
+        weight: 1
+      - path: Jon/GEO/Right_elbow
+        weight: 1
+      - path: Jon/GEO/Right_foot
+        weight: 1
+      - path: Jon/GEO/Right_hand
+        weight: 1
+      - path: Jon/GEO/Right_hip
+        weight: 1
+      - path: Jon/GEO/Right_knee
+        weight: 1
+      - path: Jon/GEO/Right_leg
+        weight: 1
+      - path: Jon/GEO/Right_shoulder
+        weight: 1
+      - path: Jon/Root_CTRL
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball/Left_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball/Right_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1/Top_head
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1/Left_hand
+          1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1/Right_hand
+          1
+        weight: 1
+      - path: pfxToon1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: in air
+      takeName: Take 001
+      firstFrame: 138
+      lastFrame: 159
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Jon
+        weight: 1
+      - path: Jon/GEO
+        weight: 1
+      - path: Jon/GEO/Body
+        weight: 1
+      - path: Jon/GEO/Head
+        weight: 1
+      - path: Jon/GEO/Left_arm
+        weight: 1
+      - path: Jon/GEO/Left_elbow
+        weight: 1
+      - path: Jon/GEO/Left_foot
+        weight: 1
+      - path: Jon/GEO/Left_hand
+        weight: 1
+      - path: Jon/GEO/Left_hip
+        weight: 1
+      - path: Jon/GEO/Left_knee
+        weight: 1
+      - path: Jon/GEO/Left_leg
+        weight: 1
+      - path: Jon/GEO/Left_shoulder
+        weight: 1
+      - path: Jon/GEO/Right_arm
+        weight: 1
+      - path: Jon/GEO/Right_elbow
+        weight: 1
+      - path: Jon/GEO/Right_foot
+        weight: 1
+      - path: Jon/GEO/Right_hand
+        weight: 1
+      - path: Jon/GEO/Right_hip
+        weight: 1
+      - path: Jon/GEO/Right_knee
+        weight: 1
+      - path: Jon/GEO/Right_leg
+        weight: 1
+      - path: Jon/GEO/Right_shoulder
+        weight: 1
+      - path: Jon/Root_CTRL
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball/Left_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball/Right_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1/Top_head
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1/Left_hand
+          1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1/Right_hand
+          1
+        weight: 1
+      - path: pfxToon1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: jump land
+      takeName: Take 001
+      firstFrame: 160
+      lastFrame: 189
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Jon
+        weight: 1
+      - path: Jon/GEO
+        weight: 1
+      - path: Jon/GEO/Body
+        weight: 1
+      - path: Jon/GEO/Head
+        weight: 1
+      - path: Jon/GEO/Left_arm
+        weight: 1
+      - path: Jon/GEO/Left_elbow
+        weight: 1
+      - path: Jon/GEO/Left_foot
+        weight: 1
+      - path: Jon/GEO/Left_hand
+        weight: 1
+      - path: Jon/GEO/Left_hip
+        weight: 1
+      - path: Jon/GEO/Left_knee
+        weight: 1
+      - path: Jon/GEO/Left_leg
+        weight: 1
+      - path: Jon/GEO/Left_shoulder
+        weight: 1
+      - path: Jon/GEO/Right_arm
+        weight: 1
+      - path: Jon/GEO/Right_elbow
+        weight: 1
+      - path: Jon/GEO/Right_foot
+        weight: 1
+      - path: Jon/GEO/Right_hand
+        weight: 1
+      - path: Jon/GEO/Right_hip
+        weight: 1
+      - path: Jon/GEO/Right_knee
+        weight: 1
+      - path: Jon/GEO/Right_leg
+        weight: 1
+      - path: Jon/GEO/Right_shoulder
+        weight: 1
+      - path: Jon/Root_CTRL
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball/Left_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball/Right_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1/Top_head
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1/Left_hand
+          1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1/Right_hand
+          1
+        weight: 1
+      - path: pfxToon1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: tired walk
+      takeName: Take 001
+      firstFrame: 190
+      lastFrame: 289
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Jon
+        weight: 1
+      - path: Jon/GEO
+        weight: 1
+      - path: Jon/GEO/Body
+        weight: 1
+      - path: Jon/GEO/Head
+        weight: 1
+      - path: Jon/GEO/Left_arm
+        weight: 1
+      - path: Jon/GEO/Left_elbow
+        weight: 1
+      - path: Jon/GEO/Left_foot
+        weight: 1
+      - path: Jon/GEO/Left_hand
+        weight: 1
+      - path: Jon/GEO/Left_hip
+        weight: 1
+      - path: Jon/GEO/Left_knee
+        weight: 1
+      - path: Jon/GEO/Left_leg
+        weight: 1
+      - path: Jon/GEO/Left_shoulder
+        weight: 1
+      - path: Jon/GEO/Right_arm
+        weight: 1
+      - path: Jon/GEO/Right_elbow
+        weight: 1
+      - path: Jon/GEO/Right_foot
+        weight: 1
+      - path: Jon/GEO/Right_hand
+        weight: 1
+      - path: Jon/GEO/Right_hip
+        weight: 1
+      - path: Jon/GEO/Right_knee
+        weight: 1
+      - path: Jon/GEO/Right_leg
+        weight: 1
+      - path: Jon/GEO/Right_shoulder
+        weight: 1
+      - path: Jon/Root_CTRL
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Left_hip 1/Left_knee 1/Left_ankle/Left_ball/Left_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Right_hip 1/Right_knee 1/Right_foot 1/Right_ball/Right_toe
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Head 1/Top_head
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Left_shoulder 1/Left_elbow 1/Left_hand
+          1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1
+        weight: 1
+      - path: Jon/Root_CTRL/JOINTS/Root/Torso/Neck/Right_shoulder 1/Right_elbow 1/Right_hand
+          1
+        weight: 1
+      - path: pfxToon1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
